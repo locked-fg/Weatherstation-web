@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="de">
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="Weatherstation">
+        <meta name="author" content="Dr. Franz Graf">    
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" /> 
+
+        <title>Weatherstation</title>
+        <link rel="stylesheet" href="weatherstation.css">
+        <script type="text/javascript" src="js/jquery.min.js"></script>
+        <script type="text/javascript" src="js/jquery-dateFormat.min.js"></script>
+        <script type="text/javascript" src="js/functions.js"></script>
+    </head>
+    <body>
+        <div id="anchorPane">
+            <div class="flexRow cell row1">
+                <div id="title" class="leftCol">Wetter Gaißach</div>
+                <div id="clock" class="rightCol">00:00</div>
+            </div>
+            <div class="flexRow row2">
+                <div id="date" class="cell leftCol">Montag, 30. Dezember</div>
+                <div id="bigTitle" class="cell tileNoBottom rightCol">TITLE BIG</div>
+            </div>
+            <div class="flexRow">
+                <div class="cell leftCol">
+                    <div id="dataTable">
+                        <div class="tr gridHead">
+                            <div class="col1"></div>
+                            <div class="col2">aktuell</div>
+                            <div class="col3">min / max 2d</div>
+                        </div>
+                        <div class="tr">
+                            <div class="gridLabel col1">Temperatur:</div>
+                            <div class="gridValue col2"><span id="currentTemp">0</span> °C</div>
+                            <div class="gridValue col3"><span id="minTemp">0</span> / <span id="maxTemp">0</span> °C</div>
+                        </div>
+                        <div class="tr">
+                            <div class="gridLabel col1">Luftfeuchtigkeit:</div>
+                            <div class="gridValue col2"><span id="currentHumidity">0.0</span> %</div>
+                            <div class="gridValue col3"><span id="minHumidity">0.0</span> / <span id="maxHumidity">0.0</span> %</div>
+                        </div>
+                        <div class="tr">
+                            <div class="gridLabel col1">Luftdruck:</div>
+                            <div class="gridValue col2"><span id="currentAirpressure">500</span> mBar</div>
+                            <div class="gridValue col3"><span id="minAirpressure">500</span> / <span id="maxAirpressure">987</span> mBar</div>
+                        </div>
+                        <div class="tr">
+                            <div class="gridLabel col1">Umgebungslicht:</div>
+                            <div class="gridValue col2"><span id="currentAmbient">50</span> Lux</div>
+                            <div class="gridValue col3"><span id="minAmbient">10</span> / <span id="maxAmbient">500</span> Lux</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="cell rightCol tileNoTop bigValue">
+                    <span id="bigValue" >---</span><span id="bigValueMetric" >X</span>
+                </div>
+            </div>
+            <div class="flexRow">
+                <div id="diagramPane" class="cell">
+                    <div id="diagramHead">Temperatur</div>
+                    <div id="chart"></div>
+                </div>
+            </div>
+        </div>
+        <script src="js/highcharts/highcharts.js"></script>
+        <script src="js/highcharts/modules/exporting.js"></script>
+        <script type="text/javascript">
+            // var metrics = new Array("temp", "humidity", "pressure", "ambient");
+            var showMetric = 0;
+
+            loadTable();
+            setInterval(loadTable, 10 * 1000);
+
+            loadSeries();
+            setInterval(loadSeries, 60 * 1000);
+
+            setClock();
+            setInterval(setClock, 5 * 1000);
+
+            function next() {
+                showMetric = (showMetric + 1) % 4;
+                loadSeries();
+                loadTable();
+            }
+            function prev() {
+                showMetric = (showMetric + 3) % 4;
+                loadSeries();
+                loadTable();
+            }
+
+            $(".rightCol").click(next);
+            $(".leftCol").click(prev);
+            $(window).on('keydown', function (event) {
+                if (event.which === 37 || event.which === 39) {
+                    event.preventDefault();
+                    if (event.which === 37) {
+                        prev();
+                    } else if (event.which === 39) {
+                        next();
+                    }
+                }
+            });
+        </script>
+
+    </body>
+</html>
