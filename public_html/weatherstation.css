@@ -18,7 +18,7 @@ body {
     left: 0;
 
     background: linear-gradient(hsl(213, 100%, 23%), hsl(213, 100%, 33%));
-    font-family: System, arial, sans-serif;
+    font-family: Arial, System, Sans-serif;
 
     text-shadow: 0.9px 0.9px 2px #000000;
     color: white;
