@@ -139,19 +139,19 @@ function loadTable() {
         function noSign(dec, v) {
             return parseFloat(v).toFixed(dec);
         }
-        $("#currentTemp").text(noSign(1, data.temperature.current));
+        $(".currentTemp").text(noSign(1, data.temperature.current));
         $("#minTemp").text(noSign(1, data.temperature.min));
         $("#maxTemp").text(noSign(1, data.temperature.max));
 
-        $("#currentHumidity").text(noSign(1, data.humidity.current));
+        $(".currentHumidity").text(noSign(1, data.humidity.current));
         $("#minHumidity").text(noSign(1, data.humidity.min));
         $("#maxHumidity").text(noSign(1, data.humidity.max));
 
-        $("#currentAirpressure").text(noSign(0, data.airpressure.current));
+        $(".currentAirpressure").text(noSign(0, data.airpressure.current));
         $("#minAirpressure").text(noSign(0, data.airpressure.min));
         $("#maxAirpressure").text(noSign(0, data.airpressure.max));
 
-        $("#currentAmbient").text(noSign(0, data.ambientlight.current));
+        $(".currentAmbient").text(noSign(0, data.ambientlight.current));
         $("#minAmbient").text(noSign(0, data.ambientlight.min));
         $("#maxAmbient").text(noSign(0, data.ambientlight.max));
 
@@ -178,7 +178,7 @@ function loadTable() {
 
         } else {
         }
-    });
+	});
 }
 
 function getXAxis() {

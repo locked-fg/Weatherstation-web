@@ -13,6 +13,12 @@
         <script type="text/javascript" src="js/functions.js"></script>
     </head>
     <body>
+		<div id="description">Aktuell: 
+			<span class="currentTemp"></span>°C, 
+			<span class="currentHumidity">0.0</span> %,
+			<span class="currentAirpressure">500</span> mBar,
+			<span class="currentAmbient">50</span> Lux
+		</div>
         <div id="anchorPane">
             <div class="flexRow cell row1">
                 <div id="title" class="leftCol">Wetter Gaißach</div>
@@ -32,22 +38,22 @@
                         </div>
                         <div class="tr">
                             <div class="gridLabel col1">Temperatur:</div>
-                            <div class="gridValue col2"><span id="currentTemp">0</span> °C</div>
+                            <div class="gridValue col2"><span class="currentTemp">0</span> °C</div>
                             <div class="gridValue col3"><span id="minTemp">0</span> / <span id="maxTemp">0</span> °C</div>
                         </div>
                         <div class="tr">
                             <div class="gridLabel col1">Luftfeuchtigkeit:</div>
-                            <div class="gridValue col2"><span id="currentHumidity">0.0</span> %</div>
+                            <div class="gridValue col2"><span class="currentHumidity">0.0</span> %</div>
                             <div class="gridValue col3"><span id="minHumidity">0.0</span> / <span id="maxHumidity">0.0</span> %</div>
                         </div>
                         <div class="tr">
                             <div class="gridLabel col1">Luftdruck:</div>
-                            <div class="gridValue col2"><span id="currentAirpressure">500</span> mBar</div>
+                            <div class="gridValue col2"><span class="currentAirpressure">500</span> mBar</div>
                             <div class="gridValue col3"><span id="minAirpressure">500</span> / <span id="maxAirpressure">987</span> mBar</div>
                         </div>
                         <div class="tr">
                             <div class="gridLabel col1">Umgebungslicht:</div>
-                            <div class="gridValue col2"><span id="currentAmbient">50</span> Lux</div>
+                            <div class="gridValue col2"><span class="currentAmbient">50</span> Lux</div>
                             <div class="gridValue col3"><span id="minAmbient">10</span> / <span id="maxAmbient">500</span> Lux</div>
                         </div>
                     </div>
