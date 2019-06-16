@@ -8,7 +8,11 @@
 
         <title>Wetter in Gaißach</title>
         <link rel="stylesheet" href="weatherstation.css">
-        <script type="text/javascript" src="js/jquery.min.js"></script>
+		<script 
+		  src="https://code.jquery.com/jquery-3.4.1.min.js"
+		  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+		  crossorigin="anonymous"></script>
+		<script src="https://code.jquery.com/mobile/1.5.0-alpha.1/jquery.mobile-1.5.0-alpha.1.min.js"></script>
         <script type="text/javascript" src="js/jquery-dateFormat.min.js"></script>
         <script type="text/javascript" src="js/functions.js"></script>
     </head>
@@ -71,10 +75,10 @@
             var showMetric = 0;
 
             loadTable();
-            setInterval(loadTable, 10 * 1000);
+            setInterval(loadTable, 5 * 1000);
 
             loadSeries();
-            setInterval(loadSeries, 60 * 1000);
+            setInterval(loadSeries, 5 * 1000);
 
             setClock();
             setInterval(setClock, 5 * 1000);
@@ -90,8 +94,13 @@
                 loadTable();
             }
 
+			// react on swipe
+			$(document).on( "swipeleft", next);
+			$(document).on( "swiperight", prev);
+			// react on klicks
             $(".rightCol").click(next);
             $(".leftCol").click(prev);
+			// react on cursor keys
             $(window).on('keydown', function (event) {
                 if (event.which === 37 || event.which === 39) {
                     event.preventDefault();
