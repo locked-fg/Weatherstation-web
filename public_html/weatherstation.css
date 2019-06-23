@@ -149,3 +149,18 @@ body {
     padding: 0px;
     text-shadow: none;
 }
+
+.oneCol { width: 100%; }
+
+.rowWebCam {}
+
+#webcamimage img{
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	width: 1287px;
+	height: 507px;
+	max-width: 100%;
+}
+
+.ui-loader { display: none; }
