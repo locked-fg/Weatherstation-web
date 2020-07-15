@@ -158,8 +158,8 @@ body {
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
-	width: 1287px;
-	height: 507px;
+	width: 960px; /* 640 */
+	height: 528px;
 	max-width: 100%;
 }
 
